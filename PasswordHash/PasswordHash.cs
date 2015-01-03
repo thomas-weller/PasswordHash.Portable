@@ -140,7 +140,7 @@ namespace PasswordHash
         }
 
         /// <summary>
-        /// Creates a salted PBKDF2 hash of the password.
+        /// Creates a salted Pbkdf2 hash of the password.
         /// </summary>
         /// <param name="password">The password to hash.</param>
         /// <returns>The hash of the password.</returns>
@@ -151,7 +151,7 @@ namespace PasswordHash
                 var salt = CreateRandomSalt();
 
                 // Hash the password and encode the parameters
-                byte[] hash = new PBKDF2().GenerateDerivedKey(HashByteSize, Encoding.UTF8.GetBytes(password), salt, Pbkdf2Iterations);
+                byte[] hash = new Pbkdf2().GenerateDerivedKey(HashByteSize, Encoding.UTF8.GetBytes(password), salt, Pbkdf2Iterations);
 
                 return Pbkdf2Iterations.ToString() +
                        Delimiter +
@@ -177,7 +177,7 @@ namespace PasswordHash
                 byte[] salt = Convert.FromBase64String(hashParts[SaltIndex]);
                 byte[] hash = Convert.FromBase64String(hashParts[Pbkdf2Index]);
 
-                byte[] testHash = new PBKDF2().GenerateDerivedKey(hash.Length, Encoding.UTF8.GetBytes(password), salt, iterations);
+                byte[] testHash = new Pbkdf2().GenerateDerivedKey(hash.Length, Encoding.UTF8.GetBytes(password), salt, iterations);
 
                 return SlowEquals(hash, testHash);
             }

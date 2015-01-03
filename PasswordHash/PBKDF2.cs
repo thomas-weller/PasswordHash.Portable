@@ -1,7 +1,7 @@
 ﻿// ************************************************************************************************************************************************************
 // <Description>
-//    This is a PCL compatible C# implementation for PBKDF2 key derivation. The code was copied unmodified from the StackOverflow question:
-//    'PBKDF2 in Bouncy Castle C#' resp. the code that was provided with the accepted answer (see below for link). 
+//    This is a PCL compatible C# implementation for Pbkdf2 key derivation. The code was copied unmodified from the StackOverflow question:
+//    'Pbkdf2 in Bouncy Castle C#' resp. the code that was provided with the accepted answer (see below for link). 
 // </Description>
 // <Credits>
 //    StackOverflow question & code: http://stackoverflow.com/questions/3210795/pbkdf2-in-bouncy-castle-c-sharp#3213054
@@ -19,7 +19,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 
 namespace PasswordHash
 {
-    internal class PBKDF2
+    internal class Pbkdf2
     {
 
         private readonly IMac hMac = new HMac(new Sha1Digest());
